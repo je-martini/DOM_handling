@@ -7,6 +7,18 @@ const base_url = 'https://platzi-avo.vercel.app'
 
 const app_node = document.querySelector('#app');
 
+const format_price = (price) => {
+
+    const new_price = new window.Intl.NumberFormat("en-EN", {
+        style: "currency",
+        currency: "USD",
+    }).format(price);
+
+    return new_price
+    // return price
+}
+
+
 window
 .fetch(`${base_url}/api/avo` )
 .then((respuesta) => respuesta.json())
@@ -21,9 +33,14 @@ window
 
         const title = document.createElement('h2');
         title.textContent = item.name;
+        // title.style = "    font-size: 2rem;        "
+        // title.style.fontSize = '2rem';
+        title.className = 'text-2xl text-red-600';
+        
 
         const price = document.createElement('p');
-        price.textContent = item.price;
+        price.textContent = format_price(item.price);
+
 
         const container = document.createElement('div')
 
