@@ -3,10 +3,12 @@
  * When you're ready to start on your site, clear the file. Happy hacking!
  **/
 
-const url = 'https://platzi-avo.vercel.app/api/avo'
+const base_url = 'https://platzi-avo.vercel.app'
+
+const app_node = document.querySelector('#app');
 
 window
-.fetch(url)
+.fetch(`${base_url}/api/avo` )
 .then((respuesta) => respuesta.json())
 .then((respuesta_json) => {
     const all_items = [];
@@ -15,17 +17,20 @@ window
         // console.log(item.name)
 
         const img = document.createElement('img');
-        
+        img.src = `${base_url}${item.image}`;
+
         const title = document.createElement('h2');
-        
+        title.textContent = item.name;
+
         const price = document.createElement('p');
-        
+        price.textContent = item.price;
+
         const container = document.createElement('div')
 
         container.append(img, title, price);
 
         all_items.push(container)
     });
-    document.body.append(...all_items)
+    app_node.append(...all_items)
 })
 
