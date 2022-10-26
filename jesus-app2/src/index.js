@@ -3,11 +3,14 @@
  * When you're ready to start on your site, clear the file. Happy hacking!
  **/
 
-const images_container = document.querySelector('.images_container');
 
-const max_num = 122;
-const min_num = 1;
+const images_container = document.querySelector('.images_container');
+const img_builder = document.querySelector('.img_builder');
+
+
 const randon_num2 = () => {
+    const max_num = 122;
+    const min_num = 1;
     return Math.floor(Math.random() * (max_num - min_num)) + min_num;
 };
 
@@ -23,12 +26,13 @@ const img_maker = () => {
     return image_container
 }
 
-images_container.append(
-    img_maker(),
-    img_maker(),
-    img_maker(),
-    img_maker()
-    )
+img_builder.addEventListener('click', add_img);
+
+function add_img(){
+    images_container.append(img_maker())
+
+}
+
 
 
 

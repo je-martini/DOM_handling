@@ -1,3 +1,11 @@
 @import 'tailwindcss/dist/base.css';
 @import 'tailwindcss/dist/components.css';
 @import 'tailwindcss/dist/utilities.css';
+
+
+button {
+    border: 1px solid black;
+    padding: 5px;
+    border-radius: 20px;
+    background-color: blue;
+}
