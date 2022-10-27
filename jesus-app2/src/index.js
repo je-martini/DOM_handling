@@ -3,10 +3,11 @@
  * When you're ready to start on your site, clear the file. Happy hacking!
  **/
 
+import { register_image } from './lazy_load' 
 
 const images_container = document.querySelector('.images_container');
 const img_builder = document.querySelector('.img_builder');
-
+const delete_img = document.querySelector('.delete_img');
 
 const randon_num2 = () => {
     const max_num = 122;
@@ -29,8 +30,15 @@ const img_maker = () => {
 img_builder.addEventListener('click', add_img);
 
 function add_img(){
-    images_container.append(img_maker())
+    let new_img = img_maker();
+    images_container.append(new_img);
+    register_image(new_img)
+}
 
+delete_img.addEventListener('click', image_deleter)
+
+function image_deleter() {
+    images_container.removeChild(images_container.lastChild)
 }
 
 
