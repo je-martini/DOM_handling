@@ -22,7 +22,7 @@ const img_maker = () => {
     img.className = 'mx-auto';
     img.width = '320';
     img.alt = 'un zorrito jugando'
-    img.src = `https://randomfox.ca/images/${randon_num2()}.jpg`;
+    img.dataset.src = `https://randomfox.ca/images/${randon_num2()}.jpg`;
     image_container.append(img);
     return image_container
 }
